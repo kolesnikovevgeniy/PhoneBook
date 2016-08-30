@@ -9,6 +9,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.Button;
 
+import java.util.ArrayList;
+
 public class Controller {
     @FXML
     private TextField tfSearch;
@@ -35,12 +37,30 @@ public class Controller {
     }
 
     /**
-     * Обработчик нажатия на кнопку запуска.
+     * Обработчик нажатия на кнопку поиска.
      */
     @FXML
     private void handleStart() {
-
+        outputPhones(mainApp.searchPhone(tfSearch.getText()));
     }
+
+    // вывод найденных телефонов
+    private void outputPhones(ArrayList<String> arrPhones)
+    {
+
+        if (arrPhones == null) {
+            tfOutput.setText("Такого ФИО в справочнике нет!");
+            return;
+        }
+
+        String stOut = "";
+        for(int i = 0; i < arrPhones.size();i++)
+        {
+            stOut += arrPhones.get(i) + "\r\n";
+        }
+        tfOutput.setText(stOut);
+    }
+
 
     /**
      * Обработчик нажатия на кнопку выхода.
