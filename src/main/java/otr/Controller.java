@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.Button;
+import otr.Model.PhoneBook;
 
 import java.util.ArrayList;
 
@@ -28,7 +29,7 @@ public class Controller {
     private Button btnExit;
 
     // Ссылка на главное приложение.
-    private AppMain mainApp;
+    private PhoneBook phoneBook;
 
     /**
      * Конструктор.
@@ -41,7 +42,7 @@ public class Controller {
      */
     @FXML
     private void handleStart() {
-        outputPhones(mainApp.searchPhone(tfSearch.getText()));
+        outputPhones(phoneBook.searchPhone(tfSearch.getText()));
     }
 
     // вывод найденных телефонов
@@ -85,10 +86,10 @@ public class Controller {
 
     /**
      * Сохраняем ссылку на главное приложение
-     * @param mainApp
+     * @param pb
      */
-    public void setMainApp(AppMain mainApp) {
-        this.mainApp = mainApp;
+    public void setModel(PhoneBook pb) {
+        this.phoneBook = pb;
     }
 }
 
