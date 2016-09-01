@@ -86,10 +86,10 @@ public class Controller {
 
     /**
      * Сохраняем ссылку на главное приложение
-     * @param pb
+     * @param phoneBook
      */
-    public void setModel(PhoneBook pb) {
-        this.phoneBook = pb;
+    public void setModel(PhoneBook phoneBook) {
+        this.phoneBook = phoneBook;
     }
 }
 
